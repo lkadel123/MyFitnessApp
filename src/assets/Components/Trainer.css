@@ -1,0 +1,124 @@
+/* General Section Styling */
+.team {
+    padding: 60px 0;
+  }
+  
+  .team .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .team .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Grid Styling */
+  .team .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+  }
+  
+  .team .col-xl-4,
+  .team .col-md-4 {
+    flex: 1;
+    max-width: 33%;
+    min-width: 410px;
+  }
+  
+  @media (max-width: 992px) {
+    .team .col-xl-4 {
+      max-width: 50%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .team .col-xl-4 {
+      max-width: 100%;
+    }
+  }
+  
+  /* Team Member Card */
+  .team .team-member {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .team .team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Member Image */
+  .team .member-img {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .team .member-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-bottom: 5px solid #808000;
+}
+  
+  /* Member Info */
+  .team .member-info {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .team .member-info h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .team .member-info span {
+    display: block;
+    font-size: 1rem;
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .team .member-info span:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Link Styling */
+  .team .team-member a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* AOS (Animate On Scroll) Styling */
+  [data-aos="zoom-in"] {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  [data-aos="zoom-in"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  [data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  [data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

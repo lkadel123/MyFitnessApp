@@ -1,0 +1,42 @@
+
+*{
+  margin: 0;
+  padding: 0;
+}
+#top-bar {
+    margin-top: 7px;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    height: 40px;
+}
+
+
+.top-bar a {
+  color: #333;
+  text-decoration: none;
+}
+
+.top-bar .icon-envelope-open-o,
+.top-bar .icon-phone,
+.top-bar .icon-twitter,
+.top-bar .icon-facebook {
+  margin-right: 5px;
+}
+
+.float-right {
+  float: right;
+}
+
+.mx-md-2 {
+  margin: 0 0.5rem;
+}
+
+.d-none {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .d-md-inline-block {
+    display: inline-block;
+  }
+}
