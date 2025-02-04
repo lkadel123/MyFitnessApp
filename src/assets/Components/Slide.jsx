@@ -1,15 +1,16 @@
 import React from "react";
 import CustomCarousel from "./dynamicCrousel";
+import "./Slide.css";
 
 const Slide = () => {
   const items = [
     {
-      image: "ce1ec1f1ef89f5bc15e30a2cba9b7069.avif",
+      image: "FmAITB5acAABJmT (4)_1673634532.jpg",
       title: "Slide 1",
       description: "Description for slide 1",
     },
     {
-      image: "Indian-Army-women-1.jpg",
+      image: "nimbus-defence-academy-chandigarh-sector-34a-chandigarh-nda-institutes-9u6zs2lgmp.avif",
       title: "Slide 2",
       description: "Description for slide 2",
     },
@@ -26,9 +27,19 @@ const Slide = () => {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto py-10">
+<>
+<div className="max-w-5xl mx-auto py-10">
       <CustomCarousel items={items} />
     </div>
+        <div className="overflow-hidden whitespace-nowrap bg-green-100 py-2">
+        <a
+          href="registration-form.php"
+          className="inline-block text-lg text-green-800 font-semibold animate-marquee"
+        >
+          Admissions Open for Session 2025-26. Limited Seats. Apply Now.
+        </a>
+      </div>
+</>
   );
 };
 

@@ -7,6 +7,7 @@ import {
   BookOpen,
   Users,
 } from "lucide-react";
+import "./WhyChoose.css";
 
 const FeaturesGrid = () => {
   const features = [
@@ -18,7 +19,7 @@ const FeaturesGrid = () => {
     {
       title: "Physical Training",
       description: "Commandos for physical endurance building & training.",
-      Icon: Activity, // Replaced with a valid icon
+      Icon: Activity,
     },
     {
       title: "Offline & Online Exams",
@@ -44,19 +45,20 @@ const FeaturesGrid = () => {
   ];
 
   return (
-    <div className="row" style={{ margin: "2rem"}}>
-        <h1>Why Choose Us</h1>
+    <>    
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <h1>Why Choose Us</h1>
+    </div>
+    <div className="features-grid-container">
       {features.map((feature, index) => (
-        <div
-          key={index}
-          className="col-md-6 col-lg-4 col-sm-12 flex flex-col items-center gap-4 p-4"
-        >
-          <feature.Icon className="w-16 h-16 text-green-600 mb-4" />
-          <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-          <p className="text-sm text-gray-600">{feature.description}</p>
+        <div key={index} className="feature-card">
+          <feature.Icon className="feature-icon" />
+          <h3 className="feature-title">{feature.title}</h3>
+          <p className="feature-description">{feature.description}</p>
         </div>
       ))}
     </div>
+    </>
   );
 };
 

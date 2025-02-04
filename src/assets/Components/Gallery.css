@@ -6,7 +6,6 @@ body {
 
 /* Gallery Wrapper */
 .gallery-wrapper {
-    padding: 40px 0;
     background-color: #f8f8f8;
 }
 
@@ -19,27 +18,27 @@ body {
 .gallery-items {
     position: relative;
     overflow: hidden;
-    padding: 10px;
+    padding: 4px;
     flex: 1 1 calc(25% - 20px); /* Adjust for responsive grid */
     box-sizing: border-box;
 }
 
 .gallery-items img {
     width: 100%;
-    height: auto;
+    height: 300px;
+    object-fit: cover;
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 8px;
 }
 
 /* Hover effect */
 .gallery-items:hover img {
-    transform: scale(1.1);
+    transform: scale(.99);
     opacity: 0.8;
 }
 
 /* Container fluid adjustments */
 .container-fluid {
-    max-width: 1200px;
     margin: 0 auto;
 }
 

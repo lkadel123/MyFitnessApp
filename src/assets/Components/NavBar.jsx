@@ -25,32 +25,32 @@ function Navbar() {
                             <nav className="site-navigation text-right ml-auto" role="navigation">
                                 <ul className={`site-menu main-menu js-clone-nav ml-auto ${menuOpen ? '' : 'd-none'} d-lg-block`}>
                                     <li>
-                                        <Link to="/" className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
+                                        <Link to="/" className="nav-link" onClick={toggleMenu} style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
                                             <FaHome size={18} /><span>Home</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/about" className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
+                                        <Link to="/about" onClick={toggleMenu} className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
                                             <FaInfoCircle size={18} /><span>About</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/memberships" className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
+                                        <Link to="/memberships" onClick={toggleMenu} className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
                                             <FaUsers size={18} /><span>Memberships</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/trainer" className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
+                                        <Link to="/trainer" className="nav-link" onClick={toggleMenu} style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
                                             <FaDumbbell size={18} /><span>Trainer</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/programs" className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
+                                        <Link to="/programs" className="nav-link" onClick={toggleMenu} style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
                                             <FaBlog size={18} /><span>Programs</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/contact" className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
+                                        <Link to="/contact" className="nav-link" onClick={toggleMenu} style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
                                             <FaEnvelope size={18} /><span>Contact Us</span>
                                         </Link>
                                     </li>

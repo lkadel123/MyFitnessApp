@@ -13,17 +13,20 @@ import TeamSection from './assets/Components/Trainer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import FeaturedClass from './assets/Components/ClassesCards';
 
+
 function Home() {
   return (
     <>
-      <Slide />
-      <FeaturedClasses />
-      <FeaturedClass />
-      <AboutSection />
-      <TeamSection />
-      <FitnessParkPrograms />
-      <ContactSection />
-      <Gallery />
+      <div className="containerHome">
+       <Slide />
+       <FeaturedClasses />
+       <FeaturedClass />
+       <AboutSection />
+       <TeamSection />
+       <FitnessParkPrograms />
+       <ContactSection />
+       <Gallery />
+      </div>
     </>
   );
 }

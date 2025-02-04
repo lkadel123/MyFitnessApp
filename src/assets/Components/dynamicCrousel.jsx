@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import "./dynamicCrousel.css";
 
-function CustomCarousel({ items }) {
+function CustomCarousel({ items, autoplayInterval }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {
@@ -12,6 +12,14 @@ function CustomCarousel({ items }) {
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
     };
+
+    // Autoplay functionality
+    useEffect(() => {
+        if (autoplayInterval) {
+            const intervalId = setInterval(nextSlide, autoplayInterval);
+            return () => clearInterval(intervalId); // Clean up interval on component unmount
+        }
+    }, [currentIndex, autoplayInterval]);
 
     return (
         <div className="carousel-container">
@@ -42,10 +50,12 @@ CustomCarousel.propTypes = {
             description: PropTypes.string,
         })
     ).isRequired,
+    autoplayInterval: PropTypes.number, // Interval time for autoplay in milliseconds
 };
 
 CustomCarousel.defaultProps = {
     items: [],
+    autoplayInterval: 3000, // Default to 3 seconds if not specified
 };
 
 export default CustomCarousel;

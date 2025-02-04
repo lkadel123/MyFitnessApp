@@ -23,7 +23,7 @@ const CounterSection = () => {
       <div className="container">
         <div className="row section-counter viewed">
 
-          <div className="col-sm-6 col-md-6 col-lg-4 d-flex align-items-stretch">
+          <div className="col-sm-11 col-md-4 col-lg-4 d-flex align-items-stretch">
             <div
               className="counter-wrap-2 d-flex"
               data-aos="fade-up"

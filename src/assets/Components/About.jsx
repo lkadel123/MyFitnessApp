@@ -33,7 +33,7 @@ const AboutSection = () => {
                   aria-controls="aboutme"
                   aria-selected="true"
                 >
-                  About Me
+                  About
                 </a>
               </li>
               <li className="nav-item" role="presentation">
@@ -46,7 +46,7 @@ const AboutSection = () => {
                   aria-controls="skills"
                   aria-selected="false"
                 >
-                  Skills
+                  Vision
                 </a>
               </li>
               <li className="nav-item" role="presentation">
@@ -59,7 +59,7 @@ const AboutSection = () => {
                   aria-controls="experience"
                   aria-selected="false"
                 >
-                  Experience
+                  History
                 </a>
               </li>
             </ul>
@@ -70,15 +70,15 @@ const AboutSection = () => {
                 role="tabpanel"
                 aria-labelledby="aboutme-tab"
               >
-                <h2 className="mb-4">My Story</h2>
+                <h2 className="mb-4">Our Story</h2>
                 <p>
-                  As a developer, my journey began with a passion for technology and problem-solving. Over the years, I've honed my skills in web and mobile development, constantly seeking new challenges and innovative solutions. Driven by creativity and a desire to make a meaningful impact, I strive to build intuitive, high-performance applications that connect users with technology in meaningful ways.
+                At [Institute Name], our journey is fueled by a passion for skill development, problem-solving, and creating valuable learning experiences through practical training. Founded by an expert in NDA coaching, our institute aims to equip individuals with the physical and mental preparedness required to excel in the National Defence Academy exams and beyond.
                 </p>
                 <h3 className="mb-4">
-                  I Do Web Design &amp; Development since I was 18 Years Old
+                A Passion for &amp;  Comprehensive Training
                 </h3>
                 <p>
-                I've been passionate about web design and development since I was 18 years old. Over the years, I've immersed myself in creating innovative, user-centric solutions that seamlessly blend design and functionality. My journey has been driven by a love for technology and a constant pursuit of crafting digital experiences that stand out.
+                Since the age of 18, our founder has dedicated themselves to training aspiring candidates for success in competitive exams, focusing on both physical fitness and written exam excellence. With a deep understanding of the demands of the NDA, they have crafted a holistic training approach that blends physical endurance, discipline, and strategic exam preparation.
                 </p>
               </div>
               <div
@@ -87,9 +87,9 @@ const AboutSection = () => {
                 role="tabpanel"
                 aria-labelledby="skills-tab"
               >
-                <h2 className="mb-4">Skills</h2>
+                <h2 className="mb-4">Our Vision</h2>
                 <p>
-                  Skilled in both web and mobile development, I specialize in creating responsive, efficient, and visually appealing websites and applications. With expertise in HTML, CSS, JavaScript, React, and more, I focus on delivering high-quality, user-friendly solutions that meet the needs of modern businesses and users.
+                At [Institute Name], our vision is to create a generation of disciplined, resilient, and highly skilled individuals who are fully prepared to succeed in the National Defence Academy exams and beyond. We aspire to be the leading institute that empowers students through rigorous physical training and comprehensive academic preparation, ensuring they are not only academically strong but also physically fit and mentally resilient. Our goal is to nurture future leaders who embody the values of integrity, perseverance, and excellence in all aspects of life.
                 </p>
                 <div className="row mt-5">
                   {[
@@ -133,17 +133,17 @@ const AboutSection = () => {
                 <div className="row">
                   {[
                     {
-                      title: "Art & Creative Director",
-                      date: "2014-2015",
+                      title: "Established Date",
+                      date: "2014-01-01",
                       position: "Google Inc.",
                     },
                     {
-                      title: "Wordpress Developer",
+                      title: "Our Founder",
                       date: "2015-2017",
-                      position: "Google Inc.",
+                      position: "Ram Krishnan lal tirpathi sharma ji",
                     },
                     {
-                      title: "UI/UX Designer",
+                      title: "Our Journey",
                       date: "2018-2020",
                       position: "Google Inc.",
                     },

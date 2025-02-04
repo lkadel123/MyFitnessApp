@@ -1,7 +1,4 @@
 /* General Section Styling */
-.team {
-    padding: 60px 0;
-  }
   
   .team .section-header {
     text-align: center;
@@ -12,7 +9,6 @@
     font-size: 2.5rem;
     font-weight: bold;
     color: #333;
-    text-transform: uppercase;
     letter-spacing: 2px;
   }
   
@@ -27,8 +23,8 @@
   .team .col-xl-4,
   .team .col-md-4 {
     flex: 1;
-    max-width: 33%;
-    min-width: 410px;
+    width: 33%;
+    min-width: 320px;
   }
   
   @media (max-width: 992px) {

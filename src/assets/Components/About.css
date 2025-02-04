@@ -29,7 +29,7 @@
     height: 100px;
     content: '';
     background: #f2f2f2;
-    background: #57abfa;
+    background: #808000;
     z-index: -1;
 }
 .img-about:before {
@@ -40,6 +40,6 @@
     height: 100px;
     content: '';
     background: #f2f2f2;
-    background: #89c4fb;
+    background: #F0E68C;
     z-index: -1;
 }

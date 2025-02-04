@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import "./Carousel.css";
 
-const Carousel = ({ images }) => {
+const Carousel = ({ images, autoplayInterval }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const nextSlide = () => {
@@ -15,6 +15,14 @@ const Carousel = ({ images }) => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
+
+  
+  React.useEffect(() => {
+    if (autoplayInterval) {
+      const intervalId = setInterval(nextSlide, autoplayInterval);
+      return () => clearInterval(intervalId); 
+    }
+  }, [currentIndex, autoplayInterval]);
 
   return (
     <div className="carousel-containers col-md-3 col-sm-11">
@@ -44,6 +52,10 @@ const Carousel = ({ images }) => {
       </div>
     </div>
   );
+};
+
+Carousel.defaultProps = {
+  autoplayInterval: 3000, 
 };
 
 export default Carousel;

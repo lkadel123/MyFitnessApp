@@ -46,7 +46,7 @@ const ContactSection = () => {
     <section className="ftco-section ftco-no-pb" id="contactme">
       <div className="container-fluid-xl">
         <div className="row no-gutters justify-content-center">
-          <div className="col-md-12">
+          <div className="col-md-12 m-3">
             <div className="wrapper">
               <div className="row g-0">
                 <div className="col-lg-6 order-lg-last">

@@ -1,0 +1,120 @@
+/* General Section Styling */
+.elementor-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: linear-gradient(
+      180deg,
+      #ff9933 0%,   /* Saffron */
+      #ffffff 50%,  /* White */
+      #138808 100%  /* Green */
+    );
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333; /* Text color for better readability */
+  }
+  
+  /* Columns Styling */
+  .elementor-column {
+    flex: 1 1 50%;
+    box-sizing: border-box;
+  }
+  
+  .elementor-col-50 {
+    max-width: 50%;
+  }
+  
+  .elementor-top-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Form Container */
+  .eael-contact-form {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Inputs and Buttons */
+  .eael-contact-form input,
+  .eael-contact-form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .eael-contact-form input:focus,
+  .eael-contact-form select:focus {
+    border-color: #5cae68; /* Green border for focus */
+    box-shadow: 0 0 4px rgba(92, 174, 104, 0.4);
+  }
+  
+  .eael-contact-form button {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #5cae68;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .eael-contact-form button:hover {
+    background-color: #489a55;
+  }
+  
+  /* Heading Styling */
+  .ekit-heading--title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .ekit-heading--title span {
+    color: #5cae68; /* Green color for "Counselling" */
+  }
+  
+  /* Image Styling */
+  .elementor-widget-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .elementor-column {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+    .img-container{
+        display: none;
+    }
+  
+    .eael-contact-form {
+      max-width: 100%;
+    }
+  
+    .ekit-heading--title {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+  
