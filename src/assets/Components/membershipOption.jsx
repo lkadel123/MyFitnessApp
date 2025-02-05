@@ -1,5 +1,5 @@
 import React from "react";
-import "./membershipOptions.css";
+import "./MembershipOptions.css";
 
 const MembershipOptions = () => {
   return (
