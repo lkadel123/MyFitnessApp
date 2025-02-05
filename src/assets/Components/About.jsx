@@ -1,6 +1,6 @@
 import React from "react";
 import CounterSection from "./fatco";
-import "./about.css"
+import "./About.css"
 
 
 const AboutSection = () => {

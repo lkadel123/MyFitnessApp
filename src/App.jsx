@@ -12,6 +12,7 @@ import Gallery from './assets/Components/Gallery';
 import TeamSection from './assets/Components/Trainer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import FeaturedClass from './assets/Components/ClassesCards';
+import Example from './assets/Components/Example';
 
 
 function Home() {
@@ -47,6 +48,7 @@ function App() {
         <Route path="/programs" element={<FeaturedClass />} />
       </Routes>
       <Footer />
+      <Example />
     </Router>
   );
 }
