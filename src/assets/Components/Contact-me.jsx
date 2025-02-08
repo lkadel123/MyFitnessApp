@@ -45,7 +45,7 @@ const ContactSection = () => {
   return (
     <section className="ftco-section ftco-no-pb" id="contactme">
       <div className="container-fluid-xl">
-        <div className="row no-gutters justify-content-center">
+        <div className="rows no-gutters justify-content-center">
           <div className="col-md-12 m-3">
             <div className="wrapper">
               <div className="row g-0">
@@ -58,7 +58,7 @@ const ContactSection = () => {
                         <div className="dbox w-100 d-flex align-items-start">
                           <div className="text">
                             <p>
-                              <span>My Address:</span> Dhangadhi-16 Rampur,Kailali(Nepal)
+                              <span>Our Address:</span> Dinanagar,Gurdaspur(Panjab)
                             </p>
                           </div>
                         </div>
@@ -67,8 +67,8 @@ const ContactSection = () => {
                         <div className="dbox w-100 d-flex align-items-start">
                           <div className="text">
                             <p>
-                              <span>My Email:</span>{" "}
-                              <a href="lkadel1999@gmail.com">lkadel1999@gmail.com</a>
+                              <span>Email:</span>{" "}
+                              <a href="lkadel1999@gmail.com" style={{color: "#fff"}}>armtfitness@gmail.com</a>
                             </p>
                           </div>
                         </div>
@@ -78,7 +78,7 @@ const ContactSection = () => {
                           <div className="text">
                             <p>
                               <span>My Phone:</span>{" "}
-                              <a href="tel://1234567920">+977 9868710810</a>
+                              <a href="tel://1234567920" style={{color: "white"}}>+91 0000000000</a>
                             </p>
                           </div>
                         </div>
@@ -144,7 +144,9 @@ const ContactSection = () => {
                             <input
                               type="submit"
                               value="Send Message"
-                              className="btn btn-dark"
+                              className="btn" style={{
+                                background: "linear-gradient(180deg, #ff9933 0%, #138808)",
+                              }}
                             />
                           </div>
                         </div>
@@ -152,16 +154,6 @@ const ContactSection = () => {
                     </form>
                     {response && <p>Success: {JSON.stringify(response)}</p>}
                     {error && <p>Error: {error}</p>}
-                    <div className="w-100 social-media mt-5">
-                      <h3>Follow me here</h3>
-                      <p>
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">Dribbble</a>
-                      </p>
-                    </div>
-                  
                   </div>
                 </div>
                 <div className="col-lg-6 d-flex align-items-stretch">

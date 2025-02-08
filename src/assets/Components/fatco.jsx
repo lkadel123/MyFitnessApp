@@ -17,7 +17,7 @@ const CounterSection = () => {
     <section className="ftco-section-counter">
       <div className="overlay"></div>
       <div className="container">
-        <div className="row section-counter viewed">
+        <div className=" d-flex section-counter viewed">
           <CounterItem
             icon={<FaUser size="3rem" />}
             count={30}

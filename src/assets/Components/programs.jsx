@@ -63,7 +63,6 @@ export default function FitnessParkPrograms() {
           </Card>
         ))}
       </div>
-      <MembershipOptions/>
     </div>
   );
 }

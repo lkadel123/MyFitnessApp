@@ -1,44 +1,38 @@
 import React from "react";
 import CustomCarousel from "./dynamicCrousel";
 import "./Slide.css";
+import CounsellingSection from "./Councling";
 
 const Slide = () => {
   const items = [
     {
       image: "FmAITB5acAABJmT (4)_1673634532.jpg",
-      title: "Slide 1",
-      description: "Description for slide 1",
+      title: "Elite Training Programs",
+      description: "Join our elite training programs designed to prepare you for the toughest challenges.",
     },
     {
       image: "nimbus-defence-academy-chandigarh-sector-34a-chandigarh-nda-institutes-9u6zs2lgmp.avif",
-      title: "Slide 2",
-      description: "Description for slide 2",
+      title: "State-of-the-Art Facilities",
+      description: "Experience world-class facilities and equipment to enhance your training.",
     },
     {
       image: "IMG-20191206-WA0023.webp",
-      title: "Slide 3",
-      description: "Description for slide 3",
+      title: "Expert Instructors",
+      description: "Learn from experienced instructors with years of military expertise.",
     },
     {
       image: "best-nda-coaching-in-india.jpg",
-      title: "Slide 4",
-      description: "Description for slide 4",
+      title: "Comprehensive Curriculum",
+      description: "Our comprehensive curriculum covers all aspects of military training and education.",
     },
   ];
 
   return (
 <>
-<div className="max-w-5xl mx-auto py-10">
-      <CustomCarousel items={items} />
-    </div>
-        <div className="overflow-hidden whitespace-nowrap bg-green-100 py-2">
-        <a
-          href="registration-form.php"
-          className="inline-block text-lg text-green-800 font-semibold animate-marquee"
-        >
-          Admissions Open for Session 2025-26. Limited Seats. Apply Now.
-        </a>
-      </div>
+<div className="row max-w-5xl mx-auto p-2">
+  <div className="col-md-6 col-lg-6 col-sm-12"><CustomCarousel items={items} /></div>
+  <div className="col-md-6 col-lg-6  col-sm-12"><CounsellingSection/></div>
+  </div>
 </>
   );
 };

@@ -17,7 +17,6 @@
 
 /* Layout Container */
 .container {
-    max-width: 1140px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -68,7 +67,6 @@
 .site-navbar {
     background: #808000;;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
     width: 100%;
 }
 
@@ -154,7 +152,7 @@
     transition: all 0.3s ease;
   }
   .btn-slide-diagonal {
-    background-color: #443f8f !important;
+    background: linear-gradient(180deg, #ff9933 0%, #138808) !important;
     overflow: hidden;
   }
   
@@ -165,7 +163,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(64, 5, 5, 0.2);
+    background: rgba(113, 90, 26, 0.2);
     transform: skewX(-30deg);
     transition: all 0.4s ease-in-out;
   }

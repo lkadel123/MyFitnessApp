@@ -16,8 +16,8 @@ function Navbar() {
                 <div className="container">
                     <div className="align-items-center position-relative d-flex justify-content-between">
                         <div className="site-logo">
-                            <Link to="/" className="text-black">
-                                <span className="text-primary">Brand</span>
+                            <Link to="/" className="text-white">
+                                <h3 >Army Fitness Academy</h3>
                             </Link>
                         </div>
 
@@ -34,11 +34,7 @@ function Navbar() {
                                             <FaInfoCircle size={18} /><span>About</span>
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link to="/memberships" onClick={toggleMenu} className="nav-link" style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
-                                            <FaUsers size={18} /><span>Memberships</span>
-                                        </Link>
-                                    </li>
+
                                     <li>
                                         <Link to="/trainer" className="nav-link" onClick={toggleMenu} style={{ fontSize: "18px", display: "flex", alignItems: "center", gap: "8px", color: "#fff" }}>
                                             <FaDumbbell size={18} /><span>Trainer</span>
@@ -56,7 +52,7 @@ function Navbar() {
                                     </li>
                                     <li>
                                         <button className="btn btn-slide-diagonal">
-                                            <FaSignInAlt size={18} /> Log In
+                                            <FaSignInAlt size={18} />Register Here
                                         </button>
                                     </li>
                                 </ul>

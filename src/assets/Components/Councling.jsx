@@ -3,7 +3,7 @@ import "./Councling.css";
 
 const CounsellingSection = () => {
   return (
-    <section className="elementor-section elementor-top-section elementor-section-boxed elementor-section-height-default" style={{margin: "0 1rem"}}>
+    <section className="elementor-section elementor-top-section elementor-section-boxed elementor-section-height-default" style={{margin: "0c"}}>
       <div className="elementor-container gap-3 d-flex">
         {/* Left Column */}
         <div className="elementor-column elementor-col-50 elementor-top-column">
@@ -62,14 +62,10 @@ const CounsellingSection = () => {
                           <option value="" disabled selected>
                             Select Course
                           </option>
-                          <option value="NDA Foundation">NDA Foundation</option>
-                          <option value="Boarding School">Boarding School</option>
-                          <option value="NDA Coaching Girls">NDA Coaching Girls</option>
-                          <option value="NDA After 12th">NDA After 12th</option>
-                          <option value="CDSE Coaching">CDSE Coaching</option>
-                          <option value="Indian Navy">Indian Navy</option>
-                          <option value="AFCAT Coaching">AFCAT Coaching</option>
-                          <option value="RIMC Coaching">RIMC Coaching</option>
+                          <option value="NDA Foundation">Indian Army Training</option>
+                          <option value="Boarding School">Indian Air Force Training</option>
+                          <option value="NDA Coaching Girls">Indian Navy Training</option>
+                          <option value="NDA After 12th">Self Defance Training</option>
                         </select>
                       </div>
                       {/* City Field */}
@@ -79,16 +75,6 @@ const CounsellingSection = () => {
                           className="wpforms-field-large"
                           name="city"
                           placeholder="Your City"
-                          required
-                        />
-                      </div>
-                      {/* Remark Field */}
-                      <div className="wpforms-field">
-                        <input
-                          type="text"
-                          className="wpforms-field-large"
-                          name="remark"
-                          placeholder="Remark"
                           required
                         />
                       </div>

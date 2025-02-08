@@ -1,0 +1,37 @@
+/* Add the 3D tilt effect */
+.programs-container {
+    display: grid;
+    margin-top: 2rem;
+  }
+  
+  .card-wrapper {
+    position: relative;
+    width: 21rem; /* Adjust size as needed */
+    height: 24rem;
+    background: linear-gradient(135deg, #F0E68C, #696901); /* from-indigo-300 to-violet-300 */
+    border-radius: 1rem;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+  }
+  
+  .card-wrapper:hover {
+    transform: rotateX(var(--tilt-y)) rotateY(var(--tilt-x));
+  }
+  
+  .card-inner {
+    position: absolute;
+    inset: 1rem;
+    display: grid;
+    place-content: center;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateZ(72px);
+  }
+  
+  /* Add padding and styles to button */
+  button {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+  }
+  

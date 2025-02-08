@@ -40,4 +40,11 @@
     z-index: 0;
 }
 
+@media (max-width: 768px) {
+  .section-counter{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
   

@@ -2,10 +2,7 @@ import React from "react";
 import {
   GraduationCap,
   Activity,
-  FileCheck,
   Shield,
-  BookOpen,
-  Users,
 } from "lucide-react";
 import "./WhyChoose.css";
 
@@ -22,32 +19,17 @@ const FeaturesGrid = () => {
       Icon: Activity,
     },
     {
-      title: "Offline & Online Exams",
-      description: "Mock tests & paper solving will be conducted in the classroom.",
-      Icon: FileCheck,
-    },
-    {
       title: "Ex-Armed Forces Officers as Mentors",
       description:
         "You will undergo your training under mentorship of Ex Armed Forces Officers.",
       Icon: Shield,
-    },
-    {
-      title: "Library & Reading Facility",
-      description: "Library and reading facility is available from 9 am to 8 pm.",
-      Icon: BookOpen,
-    },
-    {
-      title: "Leadership & Team Building",
-      description: "Leadership & team building through sports activities.",
-      Icon: Users,
-    },
+    }
   ];
 
   return (
     <>    
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <h1>Why Choose Us</h1>
+      <h1>WHY CHOOSE US</h1>
     </div>
     <div className="features-grid-container">
       {features.map((feature, index) => (

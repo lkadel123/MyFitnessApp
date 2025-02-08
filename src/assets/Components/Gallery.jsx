@@ -13,6 +13,9 @@ const Gallery = () => {
 
   return (
     <div className="gallery-wrapper lf-padding">
+          <div style={{ display: "flex", justifyContent: "center" }}>
+      <h1>TRAINING PHOTOS</h1>
+    </div>
       <div className="gallery-area">
         <div className="container-fluid">
           <div className="row gx-0">

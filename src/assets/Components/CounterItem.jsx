@@ -8,7 +8,7 @@ const CounterItem = ({ icon, count, caption, delay }) => (
     data-aos="fade-up"
     data-aos-delay={delay}
   >
-    <div className="counter-wrap-2 d-flex">
+    <div className="counter-wrap-2 d-flex w-100">
       <div className="icon" aria-label={`${caption} Icon`}>
         {icon}
       </div>

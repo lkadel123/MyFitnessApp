@@ -1,71 +1,116 @@
-import React, { useRef } from 'react';
-import { motion, useMotionTemplate,useMotionValue,useSpring } from "framer-motion";
-import {FiMousePointer} from 'react-icons/fi';
+import React, { useRef, useState } from 'react';
+import { CardContent, Button } from "@mui/material";
+import { CalendarDays, Dumbbell, Heart } from "lucide-react";
+import './Example.css';
+import MembershipOptions from './membershipOption';
 
-const Example = () => {
-    return (
-        <>
-            <div className="grid w-full place-content-center bg-gradient-to-br from-indigo-500 to-violet-500 px-4 py-12 text-slate-900">
-                <TiltCard />
-            </div>
-        </>
-    );
-};
-
-const ROTATION_RANGE = 32.4;
-const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
+const programs = [
+  {
+    id: 1,
+    name: "Yoga Sessions",
+    icon: <Heart className="text-black" style={{ width: "32px", height: "32px" }} />,
+    description: "Relax and rejuvenate with our guided yoga sessions for all levels.",
+    schedule: "Mon, Wed, Fri - 7:00 AM",
+    instructor: "Emma Carter",
+    difficulty: "Beginner",
+  },
+  {
+    id: 1,
+    name: "Yoga Sessions",
+    icon: <Heart className="text-black" style={{ width: "32px", height: "32px" }} />,
+    description: "Relax and rejuvenate with our guided yoga sessions for all levels.",
+    schedule: "Mon, Wed, Fri - 7:00 AM",
+    instructor: "Emma Carter",
+    difficulty: "Beginner",
+  },
+  {
+    id: 1,
+    name: "Yoga Sessions",
+    icon: <Heart className="text-black" style={{ width: "32px", height: "32px" }} />,
+    description: "Relax and rejuvenate with our guided yoga sessions for all levels.",
+    schedule: "Mon, Wed, Fri - 7:00 AM",
+    instructor: "Emma Carter",
+    difficulty: "Beginner",
+  },
+  {
+    id: 1,
+    name: "Yoga Sessions",
+    icon: <Heart className="text-black" style={{ width: "32px", height: "32px" }} />,
+    description: "Relax and rejuvenate with our guided yoga sessions for all levels.",
+    schedule: "Mon, Wed, Fri - 7:00 AM",
+    instructor: "Emma Carter",
+    difficulty: "Beginner",
+  },  
+];
 
 const TiltCard = () => {
-    const ref = useRef(null);
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
+  const ref = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
-    const xSpring = useSpring(x);
-    const ySpring = useSpring(y);
+  const ROTATION_RANGE = 7.4;
+  const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
 
-    const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
+  const handleMouseMove = (e) => {
+    if (!ref.current) return;
 
-    const handelMouseMove = (e) => {
-        if (!ref.current) return[0,0];
-        const rect = ref.current.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
 
-        const mouseX = (e.clientX - rect.left) * ROTATION_RANGE;
-        const mouseY = (e.clientY - rect.top) * ROTATION_RANGE;
+    const mouseX = (e.clientX - rect.left) * ROTATION_RANGE;
+    const mouseY = (e.clientY - rect.top) * ROTATION_RANGE;
 
-        const rx = mouseY / height - HALF_ROTATION_RANGE;
-        const ry = mouseX / width - HALF_ROTATION_RANGE;
+    const rx = (mouseY / height - HALF_ROTATION_RANGE);
+    const ry = (mouseX / width - HALF_ROTATION_RANGE);
 
-        x.set(rx);
-        y.set(ry);
-    };
-    const handelMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
-    return (
-        <motion.div
-            ref={ref}
-            onMouseMove={handelMouseMove}
-            onMouseLeave={handelMouseLeave}
-            style={{ transformStyle:"preserve-3d", transform }}
-            className="relative w-72 h-96 bg-gradient-to-br rounded-xl from-indigo-300 to-violet-300"
+    setTilt({ x: ry, y: rx });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
+  return (
+    <div className="">
+    <div className="row gap-4 m-2" style={{ placeItems:"center"}}>
+      {programs.map((program) => (
+        <div
+          key={program.id}
+          ref={ref}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className="card-wrapper col-sm-12 col-md-4"
+          style={{
+            '--tilt-x': `${tilt.x}deg`,
+            '--tilt-y': `${tilt.y}deg`,
+          }}
         >
-            <div style={{ transform: "translateZ(72px)", transformStyle: "preserve-3d" }}
-             className="absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg">
-
-                <FiMousePointer
-                style={{ translateZ: "72px" }}
-                className="text-4xl mx-auto" />
-                <p 
-                style={{ translateZ: "50px" }}
-                className="text-center text-lg text-gray-800">
-                    Move your mouse over the card to tilt it.
-                </p>
-            </div>
-        </motion.div>
-    );
+          <div className="card-inner">
+            <CardContent>
+              <div className="flex items-center gap-2">
+                {program.icon}
+                <h3 className="font-bold text-gray-800">{program.name}</h3>
+              </div>
+              <p className="text-black mb-0">{program.description}</p>
+              <p className="text-sm text-black mb-0">
+                <strong>Schedule:</strong> {program.schedule}
+              </p>
+              <p className="text-sm text-black mb-0">
+                <strong>Instructor:</strong> {program.instructor}
+              </p>
+              <p className="text-sm text-black mb-0">
+                <strong>Difficulty:</strong> {program.difficulty}
+              </p>
+              <Button className="mt-4 w-full text-white hover:bg-green-600" style={{ backgroundColor: "#2d3748" }}>
+                Join Now
+              </Button>
+            </CardContent>
+          </div>
+        </div>
+      ))}
+    </div>
+    </div>
+  );
 };
 
-export default Example;
+export default TiltCard;

@@ -1,27 +1,28 @@
 /* General Section Styling */
 .elementor-section {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
     background: linear-gradient(
       180deg,
-      #ff9933 0%,   /* Saffron */
-      #ffffff 50%,  /* White */
-      #138808 100%  /* Green */
+      #ff9933 0%,   
+      #ffffff 50%,  
+      #138808 100%  
     );
-    border-radius: 8px;
+    height: 540px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333; /* Text color for better readability */
+    width: 100%;
+    margin: auto;
   }
   
-  /* Columns Styling */
   .elementor-column {
-    flex: 1 1 50%;
+    flex: 1 1 100%;
     box-sizing: border-box;
   }
   
   .elementor-col-50 {
-    max-width: 50%;
+    max-width: 100%;
   }
   
   .elementor-top-column {
@@ -35,7 +36,7 @@
   .eael-contact-form {
     width: 100%;
     background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    padding: 20px;
+    padding: 4px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -63,7 +64,7 @@
   .eael-contact-form button {
     width: 100%;
     padding: 12px 15px;
-    background-color: #5cae68;
+    background: linear-gradient(180deg, #ff9933 0%, #138808);
     color: white;
     border: none;
     border-radius: 4px;
@@ -99,10 +100,10 @@
   }
   
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 494px) {
     .elementor-column {
       flex: 1 1 100%;
-      max-width: 100%;
+      width: 100%;
     }
     .img-container{
         display: none;

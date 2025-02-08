@@ -59,7 +59,7 @@ const AboutSection = () => {
                   aria-controls="experience"
                   aria-selected="false"
                 >
-                  History
+                  Mission
                 </a>
               </li>
             </ul>

@@ -12,7 +12,8 @@ import Gallery from './assets/Components/Gallery';
 import TeamSection from './assets/Components/Trainer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import FeaturedClass from './assets/Components/ClassesCards';
-import Example from './assets/Components/Example';
+import TiltCard from './assets/Components/Example';
+import FeaturesGrid from './assets/Components/WhyChoose';
 
 
 function Home() {
@@ -20,13 +21,14 @@ function Home() {
     <>
       <div className="containerHome">
        <Slide />
+       <FeaturesGrid/>
        <FeaturedClasses />
-       <FeaturedClass />
+       <FeaturedClass/>
        <AboutSection />
        <TeamSection />
-       <FitnessParkPrograms />
-       <ContactSection />
        <Gallery />
+       <ContactSection />
+
       </div>
     </>
   );
@@ -43,12 +45,12 @@ function App() {
         <Route path="/classes" element={<FeaturedClasses />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<ContactSection />} />
-        <Route path="/memberships" element={<FitnessParkPrograms />} />
+        <Route path="/memberships" element={<TiltCard/>} />
         <Route path="/trainer" element={<TeamSection />} />
         <Route path="/programs" element={<FeaturedClass />} />
       </Routes>
       <Footer />
-      <Example />
+
     </Router>
   );
 }
