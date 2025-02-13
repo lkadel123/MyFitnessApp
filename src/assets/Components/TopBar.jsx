@@ -22,7 +22,7 @@ const TopBar = () => {
 
                         <div className="float-right">
                                 <a href="#" className="text-decoration-none">
-                                        <FaPhone className="mr-2" style={{marginRight: "10px"}} />+91 9000000000
+                                        <FaPhone className="mr-2" style={{marginRight: "10px"}} />+91 8847528652
                                 </a>
                                 <span className="mx-md-2 d-inline-block"></span>
                                 <a href="#" className="text-decoration-none">
