@@ -78,24 +78,14 @@ const FeaturedClass = () => {
             </p>
             <div style={{ marginBottom: "12px" }}>
               <span
-                style={{
-                  fontSize: "0.85rem",
-                  fontWeight: "600",
-                  color: "#ff9933",
-                  marginRight: "8px",
-                }}
-              >
-                {classItem.duration}
-              </span>
-              <span
-                style={{
-                  fontSize: "0.85rem",
-                  fontWeight: "600",
-                  color: "#28A745",
-                }}
-              >
-                {classItem.level}
-              </span>
+              style={{
+                fontSize: "1rem",
+                fontWeight: "600",
+                color: "#333",
+              }}
+            >
+              {classItem.price}
+            </span>
             </div>
           </CardContent>
           <CardActions
@@ -108,24 +98,36 @@ const FeaturedClass = () => {
             <Button
               variant="contained"
               style={{
-                background: "linear-gradient(180deg, #ff9933 0%, #138808)",
+                background: "#271a0e",
                 color: "#FFF",
                 textTransform: "none",
                 borderRadius: "8px",
-                fontSize: "20px"
+                fontSize: "12px"
               }}
             >
               Learn More
             </Button>
-            <span
-              style={{
-                fontSize: "1rem",
-                fontWeight: "600",
-                color: "#333",
-              }}
-            >
-              {classItem.price}
-            </span>
+              <div>            
+                <span
+                style={{
+                  fontSize: "0.85rem",
+                  fontWeight: "600",
+                  color: "#222",
+                  paddingRight: "12px"
+                }}
+              >
+                {classItem.duration}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.85rem",
+                  fontWeight: "600",
+                  color: "#000",
+                }}
+              >
+                {classItem.level}
+              </span>
+              </div>
           </CardActions>
         </Card>
       ))}

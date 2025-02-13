@@ -1,45 +1,53 @@
 import React, { useState } from "react";
-import axios from "axios";
-import MyMapComponent from "./google-map";
-import './contact-me.css'
+import emailjs from "emailjs-com";
+import './contact-me.css';
 
 const ContactSection = () => {
-
-  const [formData, SetFormData]= useState({
-    userName : "",
-    email : "",
+  const [formData, setFormData] = useState({
+    userName: "",
+    email: "",
     subject: "",
-    message :""
+    message: "",
   });
 
-  const [response,setResponse] = useState(null);
-  const [error, SetError]= useState(null);
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    SetFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value });
   };
 
-
-  const handelSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-   axios
-   .post("https://localhost:7276/api/ContactForm", formData)
-   .then((res) => {
-     console.log("Success:", res.data);
-     alert(res.message);
-   })
-    .catch((error)=>SetError(error.Message))
-  
+    emailjs
+      .send(
+        "service_dmsasul",  // Replace with your EmailJS Service ID
+        "template_hcogpso", // Replace with your EmailJS Template ID
+        {
+          user_name: formData.userName,
+          user_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "ukjgFhN6n0uAvyVst"  // Replace with your EmailJS Public Key
+      )
+      .then((res) => {
+        setResponse("Message sent successfully!");
+        alert("Message sent successfully!");
+      })
+      .catch((error) => {
+        setError("Failed to send message.");
+        console.error(error);
+      });
 
-
-  SetFormData({
-    userName: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+    setFormData({
+      userName: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
   };
 
   return (
@@ -52,39 +60,15 @@ const ContactSection = () => {
                 <div className="col-lg-6 order-lg-last">
                   <div className="contact-wrap w-100 p-md-5 p-4">
                     <h3>Contact us</h3>
-                    <p className="mb-4">We're open for any suggestion or just to have a chat</p>
-                    <div className="row mb-4">
-                      <div className="col-md-4">
-                        <div className="dbox w-100 d-flex align-items-start">
-                          <div className="text">
-                            <p>
-                              <span>Our Address:</span> Dinanagar,Gurdaspur(Panjab)
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4">
-                        <div className="dbox w-100 d-flex align-items-start">
-                          <div className="text">
-                            <p>
-                              <span>Email:</span>{" "}
-                              <a href="lkadel1999@gmail.com" style={{color: "#fff"}}>armtfitness@gmail.com</a>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4">
-                        <div className="dbox w-100 d-flex align-items-start">
-                          <div className="text">
-                            <p>
-                              <span>My Phone:</span>{" "}
-                              <a href="tel://1234567920" style={{color: "white"}}>+91 0000000000</a>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <form id="contactForm" name="contactForm" className="contactForm" onSubmit={handelSubmit}>
+                    <p className="mb-4">
+                      We're open for any suggestion or just to have a chat
+                    </p>
+                    <form
+                      id="contactForm"
+                      name="contactForm"
+                      className="contactForm"
+                      onSubmit={handleSubmit}
+                    >
                       <div className="row">
                         <div className="col-lg-6">
                           <div className="form-group">
@@ -92,10 +76,10 @@ const ContactSection = () => {
                               type="text"
                               className="form-control"
                               name="userName"
-                              id="userName"
                               placeholder="Name"
                               value={formData.userName}
                               onChange={handleChange}
+                              required
                             />
                           </div>
                         </div>
@@ -105,10 +89,10 @@ const ContactSection = () => {
                               type="email"
                               className="form-control"
                               name="email"
-                              id="email"
                               placeholder="Email"
                               value={formData.email}
                               onChange={handleChange}
+                              required
                             />
                           </div>
                         </div>
@@ -118,10 +102,10 @@ const ContactSection = () => {
                               type="text"
                               className="form-control"
                               name="subject"
-                              id="Subject"
                               placeholder="Subject"
                               value={formData.subject}
                               onChange={handleChange}
+                              required
                             />
                           </div>
                         </div>
@@ -130,12 +114,12 @@ const ContactSection = () => {
                             <textarea
                               name="message"
                               className="form-control"
-                              id="message"
                               cols="30"
                               rows="4"
                               placeholder="Create a message here"
                               value={formData.message}
                               onChange={handleChange}
+                              required
                             ></textarea>
                           </div>
                         </div>
@@ -144,21 +128,27 @@ const ContactSection = () => {
                             <input
                               type="submit"
                               value="Send Message"
-                              className="btn" style={{
-                                background: "linear-gradient(180deg, #ff9933 0%, #138808)",
+                              className="btn"
+                              style={{
+                                backgroundColor: "#271a0e",
+                                color: "#fff",
                               }}
                             />
                           </div>
                         </div>
                       </div>
                     </form>
-                    {response && <p>Success: {JSON.stringify(response)}</p>}
-                    {error && <p>Error: {error}</p>}
+                    {response && <p style={{ color: "green" }}>{response}</p>}
+                    {error && <p style={{ color: "red" }}>{error}</p>}
                   </div>
                 </div>
                 <div className="col-lg-6 d-flex align-items-stretch">
                   <div id="map" className="bg-white">
-                    <MyMapComponent/>
+                    <img
+                      src="depositphotos_321868246-stock-photo-young-latin-woman-in-customer.jpg"
+                      alt=""
+                      style={{ height: "100%", width: "100%" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -171,3 +161,4 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
+

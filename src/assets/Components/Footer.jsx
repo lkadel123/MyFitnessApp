@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaXTwitter } from "react-icons/fa6";
 import './Footer.css'; // Link to your CSS file
 
 const Footer = () => {
@@ -32,10 +33,10 @@ const Footer = () => {
               <div className="footer-tittle">
                 <h4>Quick Links</h4>
                 <ul>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Offers &amp; Discounts</a></li>
-                  <li><a href="#">Get Coupon</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#" className="text-white">About</a></li>
+                  <li><a href="#" className="text-white">Offers &amp; Discounts</a></li>
+                  <li><a href="#" className="text-white">Get Coupon</a></li>
+                  <li><a href="#" className="text-white">Contact Us</a></li>
                 </ul>
               </div>
             </div>
@@ -47,10 +48,10 @@ const Footer = () => {
               <div className="footer-tittle">
                 <h4>New Products</h4>
                 <ul>
-                  <li><a href="#">Indian Army Training</a></li>
-                  <li><a href="#">Air Force Training</a></li>
-                  <li><a href="#">Indian Navy Training</a></li>
-                  <li><a href="#">Self Defence Training</a></li>
+                  <li><a href="#" className="text-white">Indian Army Training</a></li>
+                  <li><a href="#" className="text-white">Air Force Training</a></li>
+                  <li><a href="#"className="text-white">Indian Navy Training</a></li>
+                  <li><a href="#"className="text-white">Self Defence Training</a></li>
                 </ul>
               </div>
             </div>
@@ -62,10 +63,10 @@ const Footer = () => {
               <div className="footer-tittle">
                 <h4>Support</h4>
                 <ul>
-                  <li><a href="#">Frequently Asked Questions</a></li>
-                  <li><a href="#">Terms &amp; Conditions</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Report a Payment Issue</a></li>
+                  <li><a href="#" className="text-white" >Frequently Asked Questions</a></li>
+                  <li><a href="#" className="text-white" >Terms &amp; Conditions</a></li>
+                  <li><a href="#" className="text-white" >Privacy Policy</a></li>
+                  <li><a href="#" className="text-white" >Report a Payment Issue</a></li>
                 </ul>
               </div>
             </div>
@@ -78,8 +79,8 @@ const Footer = () => {
             <div className="footer-copy-right">
               <p>
                 Copyright &copy; {new Date().getFullYear()} All rights reserved | 
-                This template made by 
-                <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer"> @WTPL</a>
+                Powered by&nbsp;
+                <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer"> @Weboum Technology (p) Limited</a>
               </p>
             </div>
           </div>
@@ -87,10 +88,10 @@ const Footer = () => {
             <div className="footer-copy-right f-right">
               {/* Social Icons */}
               <div className="footer-social " style={{display: "flex", justifyContent: "flex-end"}}>
-                <a href="#"><i className="fab fa-twitter"></i></a>
+                <a href="#"><FaXTwitter/></a>
                 <a href="#"><i className="fab fa-facebook-f"></i></a>
                 <a href="#"> <i className="fab fa-youtube"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i className="fas fa-envelope"></i></a>
               </div>
             </div>
           </div>

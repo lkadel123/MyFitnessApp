@@ -1,11 +1,10 @@
 import './App.css';
-import AboutSection from './assets/Components/About';
+// import AboutSection from './assets/Components/About';
 import FeaturedClasses from './assets/Components/FeaturedClasses';
 import Navbar from './assets/Components/NavBar';
 import Slide from './assets/Components/Slide';
 import TopBar from './assets/Components/TopBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FitnessParkPrograms from './assets/Components/programs';
 import ContactSection from './assets/Components/Contact-me';
 import Footer from './assets/Components/Footer';
 import Gallery from './assets/Components/Gallery';
@@ -14,6 +13,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import FeaturedClass from './assets/Components/ClassesCards';
 import TiltCard from './assets/Components/Example';
 import FeaturesGrid from './assets/Components/WhyChoose';
+import AboutSection from './assets/Components/About';
 
 
 function Home() {
@@ -27,7 +27,7 @@ function Home() {
        <AboutSection />
        <TeamSection />
        <Gallery />
-       <ContactSection />
+       <ContactSection /> 
 
       </div>
     </>

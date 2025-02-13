@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaHome, FaInfoCircle, FaUsers, FaDumbbell, FaBlog, FaEnvelope, FaSignInAlt } from 'react-icons/fa';
+import { FaBars, FaHome, FaInfoCircle, FaDumbbell, FaBlog, FaEnvelope } from 'react-icons/fa';
+import RegistrationForm from './Registration';
 import './NavBar.css';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const handleOpenPopup = () => {
+      setPopupVisible(true);
+    };
+  
+    const handleClosePopup = () => {
+      setPopupVisible(false);
+    };
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -16,8 +26,8 @@ function Navbar() {
                 <div className="container">
                     <div className="align-items-center position-relative d-flex justify-content-between">
                         <div className="site-logo">
-                            <Link to="/" className="text-white">
-                                <h3 >Army Fitness Academy</h3>
+                            <Link to="/" >
+                                <h3 className="text-white">Army Fitness Academy</h3>
                             </Link>
                         </div>
 
@@ -51,8 +61,8 @@ function Navbar() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <button className="btn btn-slide-diagonal">
-                                            <FaSignInAlt size={18} />Register Here
+                                        <button onClick={handleOpenPopup} className="btn btn-slide-diagonal">
+                                            Register Here
                                         </button>
                                     </li>
                                 </ul>
@@ -71,6 +81,7 @@ function Navbar() {
                     </div>
                 </div>
             </header>
+            <RegistrationForm isVisible={isPopupVisible} onClose={handleClosePopup} />
         </div>
     );
 }

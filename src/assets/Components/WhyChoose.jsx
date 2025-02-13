@@ -28,7 +28,7 @@ const FeaturesGrid = () => {
 
   return (
     <>    
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px"}}>
       <h1>WHY CHOOSE US</h1>
     </div>
     <div className="features-grid-container">

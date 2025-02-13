@@ -12,7 +12,7 @@
     top: 0;
     left: 0;
     transition: 0.3s;
-    background: #808000;;
+    background: #800000;;
 }
 
 /* Layout Container */
@@ -65,7 +65,7 @@
 
 /* Navbar Component */
 .site-navbar {
-    background: #808000;;
+    background: #800000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
@@ -117,7 +117,7 @@
 .dropdown {
     display: none;
     position: relative;
-    background:#808000;;
+    background:#800000;
     min-width: 200px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
@@ -142,7 +142,7 @@
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
-    color: #fff !important;
+    color: #000 ;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -152,7 +152,7 @@
     transition: all 0.3s ease;
   }
   .btn-slide-diagonal {
-    background: linear-gradient(180deg, #ff9933 0%, #138808) !important;
+    background: #fff !important;
     overflow: hidden;
   }
   
@@ -188,7 +188,7 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background: #808000;
+        background: #800000;
         padding: 20px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }

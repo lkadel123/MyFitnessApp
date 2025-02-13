@@ -35,8 +35,29 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .d-md-inline-block {
     display: inline-block;
+    .top-bar a {
+      color: #333;
+      text-decoration: none;
+    }
   }
+  .float-right{
+    display: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+  white-space: nowrap;
 }
