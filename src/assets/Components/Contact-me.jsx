@@ -31,7 +31,7 @@ const ContactSection = () => {
           subject: formData.subject,
           message: formData.message,
         },
-        "ukjgFhN6n0uAvyVst"  // Replace with your EmailJS Public Key
+        "sQgYEIvxt5uWXhk39"  // Replace with your EmailJS Public Key
       )
       .then((res) => {
         setResponse("Message sent successfully!");
