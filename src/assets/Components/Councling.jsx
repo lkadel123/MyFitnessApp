@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import "./Councling.css";
 
 const CounsellingSection = () => {
@@ -11,7 +10,8 @@ const CounsellingSection = () => {
     city: "",
   });
 
-  const [message, setMessage] = useState("");
+  const [response, setResponse] = useState(""); // To handle success or error message
+  const [loading, setLoading] = useState(false); // To handle loading state
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -20,48 +20,63 @@ const CounsellingSection = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.phone || !formData.city || !formData.course) {
-      setMessage("Please fill out all fields.");
+      setResponse("Please fill out all fields.");
       return;
     }
 
-    // Prepare the data to be sent to EmailJS
+    setLoading(true); // Start loading
+
+    const apiUrl = "https://weboum.com/email-api/";
+
+    // Concatenate all form data into the message field
+    const message = `
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Phone: ${formData.phone}
+      Course: ${formData.course}
+      City: ${formData.city}
+    `;
+
     const emailData = {
-      user_name: formData.name,
-      user_email: formData.email,
-      user_phone: formData.phone,
-      user_course: formData.course,
-      user_city: formData.city,
-      form_type: "counselling",  // Pass form type here
+      wxmail: "true", // Ensure it's always 'true'
+      email: formData.email,
+      subject: "Counselling Request", // Use a static subject or customize it as needed
+      message: message, // Pass all data as a single message
     };
 
-    // Send form data to EmailJS
-    emailjs
-      .send(
-        "service_dmsasul",  // Your EmailJS Service ID
-        "template_tm1rr1o",  // Your EmailJS Template ID
-        emailData,  // Form data to send to the template
-        "ukjgFhN6n0uAvyVst"  // Your EmailJS User ID
-      )
-      .then(
-        (result) => {
-          setMessage("Your form has been submitted successfully!");
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            course: "",
-            city: "",
-          });
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error) => {
-          setMessage("There was an error sending the form.");
-          console.error("EmailJS Error: ", error.text);  // Log the error response
-        }
-      );
+        body: JSON.stringify(emailData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setResponse("Your form has been submitted successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          course: "",
+          city: "",
+        });
+      } else {
+        setResponse(result.error || "Failed to send message.");
+      }
+    } catch (error) {
+      setResponse("There was an error sending the form.");
+      console.error("Error:", error);
+    } finally {
+      setLoading(false); // End loading
+    }
   };
 
   return (
@@ -161,12 +176,12 @@ const CounsellingSection = () => {
 
                     {/* Submit Button */}
                     <div className="wpforms-submit-container">
-                      <button type="submit" className="wpforms-submit">
-                        SUBMIT
+                      <button type="submit" className="wpforms-submit" disabled={loading}>
+                        {loading ? "Submitting..." : "SUBMIT"}
                       </button>
                     </div>
                   </form>
-                  {message && <p className="form-message">{message}</p>}
+                  {response && <p className="form-message">{response}</p>}
                 </div>
               </div>
             </div>
@@ -193,7 +208,3 @@ const CounsellingSection = () => {
 };
 
 export default CounsellingSection;
-
-
-
-
