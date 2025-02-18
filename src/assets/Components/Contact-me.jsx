@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
-import './contact-me.css';
+import "./contact-me.css";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    userName: "",
     email: "",
     subject: "",
     message: "",
@@ -18,37 +16,54 @@ const ContactSection = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    emailjs
-      .send(
-        "service_dmsasul",  // Replace with your EmailJS Service ID
-        "template_hcogpso", // Replace with your EmailJS Template ID
-        {
-          user_name: formData.userName,
-          user_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
+  
+    const apiUrl = "https://weboum.com/email-api/";
+  
+    const emailData = {
+      wxmail: "true",
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+  
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        mode: "cors", 
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
         },
-        "sQgYEIvxt5uWXhk39"  // Replace with your EmailJS Public Key
-      )
-      .then((res) => {
-        setResponse("Message sent successfully!");
-        alert("Message sent successfully!");
-      })
-      .catch((error) => {
-        setError("Failed to send message.");
-        console.error(error);
+        body: JSON.stringify(emailData),
       });
-
-    setFormData({
-      userName: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+  
+      const text = await response.text();  // Read the response as text first
+  
+      let result;
+      try {
+        result = JSON.parse(text);  // Try parsing as JSON
+      } catch (error) {
+        throw new Error("Invalid JSON response from server.");
+      }
+  
+      if (!response.ok) {
+        throw new Error(`Server Error: ${result.message || response.status}`);
+      }
+  
+      console.log("API Response:", result);
+      setResponse("Message sent successfully!");
+      setError(null);
+      alert("Message sent successfully!");
+    } catch (error) {
+      setError(`Failed to send message. ${error.message}`);
+    }
   };
+  
+  
+  
+  
 
   return (
     <section className="ftco-section ftco-no-pb" id="contactme">
@@ -59,9 +74,9 @@ const ContactSection = () => {
               <div className="row g-0">
                 <div className="col-lg-6 order-lg-last">
                   <div className="contact-wrap w-100 p-md-5 p-4">
-                    <h3>Contact us</h3>
+                    <h3>Contact Us</h3>
                     <p className="mb-4">
-                      We're open for any suggestion or just to have a chat
+                      We're open for any suggestion or just to have a chat.
                     </p>
                     <form
                       id="contactForm"
@@ -70,26 +85,13 @@ const ContactSection = () => {
                       onSubmit={handleSubmit}
                     >
                       <div className="row">
-                        <div className="col-lg-6">
-                          <div className="form-group">
-                            <input
-                              type="text"
-                              className="form-control"
-                              name="userName"
-                              placeholder="Name"
-                              value={formData.userName}
-                              onChange={handleChange}
-                              required
-                            />
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-12">
                           <div className="form-group">
                             <input
                               type="email"
                               className="form-control"
                               name="email"
-                              placeholder="Email"
+                              placeholder="Your Email"
                               value={formData.email}
                               onChange={handleChange}
                               required
@@ -116,7 +118,7 @@ const ContactSection = () => {
                               className="form-control"
                               cols="30"
                               rows="4"
-                              placeholder="Create a message here"
+                              placeholder="Write your message here..."
                               value={formData.message}
                               onChange={handleChange}
                               required
@@ -146,7 +148,7 @@ const ContactSection = () => {
                   <div id="map" className="bg-white">
                     <img
                       src="depositphotos_321868246-stock-photo-young-latin-woman-in-customer.jpg"
-                      alt=""
+                      alt="Contact"
                       style={{ height: "100%", width: "100%" }}
                     />
                   </div>
