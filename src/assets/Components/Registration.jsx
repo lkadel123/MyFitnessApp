@@ -1,89 +1,82 @@
-import React, { useReducer } from "react";
-import emailjs from "emailjs-com";
+import React, { useState } from "react";
 import "./Registration.css";
 
-const initialState = {
-  username: "",
-  email: "",
-  phone: "",
-  city: "",
-  course: "",
-  password: "",
-  success: null,
-  error: null,
-};
-
-function formReducer(state, action) {
-  switch (action.type) {
-    case "SET_USERNAME":
-      return { ...state, username: action.payload };
-    case "SET_EMAIL":
-      return { ...state, email: action.payload };
-    case "SET_PHONE":
-      return { ...state, phone: action.payload };
-    case "SET_CITY":
-      return { ...state, city: action.payload };
-    case "SET_COURSE":
-      return { ...state, course: action.payload };
-    case "SET_PASSWORD":
-      return { ...state, password: action.payload };
-    case "SUBMIT_SUCCESS":
-      return { ...initialState, success: "Registration successful! Check your email." };
-    case "SUBMIT_ERROR":
-      return { ...state, error: action.payload, success: null };
-    default:
-      return state;
-  }
-}
-
 const RegistrationForm = ({ isVisible, onClose, formType = "registration" }) => {
-  const [state, dispatch] = useReducer(formReducer, initialState);
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    city: "",
+    course: "",
+    password: "",
+  });
 
-  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const isValidPhone = (phone) => /^[0-9]{10}$/.test(phone);
+  const [message, setMessage] = useState(""); // For handling form submission messages
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const validateForm = () => {
+    let valid = true;
+
+    // Add your validation logic here
+    if (!formData.username.trim() || !formData.email || !formData.phone || !formData.city || !formData.course || !formData.password) {
+      setMessage("Please fill out all fields.");
+      valid = false;
+    }
+
+    return valid;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    if (!state.username || !state.email || !state.phone || !state.city || !state.course || !state.password) {
-      dispatch({ type: "SUBMIT_ERROR", payload: "Please fill out all fields." });
-      return;
-    }
+    // Create a detailed message with all form data
+    const detailedMessage = `
+      Name: ${formData.username}
+      Email: ${formData.email}
+      Phone: ${formData.phone}
+      City: ${formData.city}
+      Course: ${formData.course}
+      Password: ${formData.password}
+    `;
 
-    if (!isValidEmail(state.email)) {
-      dispatch({ type: "SUBMIT_ERROR", payload: "Please enter a valid email." });
-      return;
-    }
-
-    if (!isValidPhone(state.phone)) {
-      dispatch({ type: "SUBMIT_ERROR", payload: "Please enter a valid phone number." });
-      return;
-    }
-
-    // Prepare the data to be sent to EmailJS
     const emailData = {
-      user_name: state.username,
-      user_email: state.email,
-      user_phone: state.phone,
-      user_city: state.city,
-      user_course: state.course,
-      user_password: state.password,
-      form_type: formType,  // Pass the dynamic formType
+      wxmail: "true",  // Custom field for the API
+      email: formData.email,
+      subject: `Registration for ${formData.course}`,  // You can customize the subject
+      message: detailedMessage,  // Pass all form data here as message
     };
 
-    emailjs
-      .send(
-        "service_dmsasul", // Replace with your EmailJS Service ID
-        "template_tm1rr1o", // Replace with your EmailJS Template ID
-        emailData,
-        "ukjgFhN6n0uAvyVst" // Replace with your EmailJS Public Key
-      )
-      .then(() => {
-        dispatch({ type: "SUBMIT_SUCCESS" });
+    // Sending data to the API
+    const apiUrl = "https://weboum.com/email-api/";
+
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(emailData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setMessage("Registration successful! Check your email.");
+        // Reset form data after successful submission
+        setFormData({
+          username: "",
+          email: "",
+          phone: "",
+          city: "",
+          course: "",
+          password: "",
+        });
       })
       .catch((error) => {
-        dispatch({ type: "SUBMIT_ERROR", payload: "Failed to send registration details." });
-        console.error(error);
+        setMessage("Failed to send registration details.");
+        console.error("API Error:", error);
       });
   };
 
@@ -92,70 +85,64 @@ const RegistrationForm = ({ isVisible, onClose, formType = "registration" }) => 
   return (
     <div className="popup-overlay" onClick={onClose}>
       <div className="popup" onClick={(e) => e.stopPropagation()}>
-        <span className="close-btn" onClick={onClose}>
-          &times;
-        </span>
+        <span className="close-btn" onClick={onClose}>&times;</span>
         <h3>Registration Form</h3>
+        {message && <p>{message}</p>}
 
-        {state.error && <p style={{ color: "red" }}>{state.error}</p>}
-        {state.success && <p style={{ color: "green" }}>{state.success}</p>}
-
-        <form onSubmit={handleSubmit} formType={formType}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
+            name="username"
             placeholder="Full Name"
-            value={state.username}
-            onChange={(e) => dispatch({ type: "SET_USERNAME", payload: e.target.value })}
+            value={formData.username}
+            onChange={handleChange}
             required
           />
           <input
             type="email"
+            name="email"
             placeholder="Email Address"
-            value={state.email}
-            onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="city"
+            placeholder="Your City"
+            value={formData.city}
+            onChange={handleChange}
             required
           />
           <select
-            className="wpforms-field-large"
             name="course"
-            value={state.course}
-            onChange={(e) => dispatch({ type: "SET_COURSE", payload: e.target.value })}
+            value={formData.course}
+            onChange={handleChange}
             required
           >
-            <option value="" disabled>
-              Select Course
-            </option>
+            <option value="" disabled>Select Course</option>
             <option value="Indian Army Training">Indian Army Training</option>
             <option value="Indian Air Force Training">Indian Air Force Training</option>
             <option value="Indian Navy Training">Indian Navy Training</option>
             <option value="Self Defence Training">Self Defence Training</option>
           </select>
           <input
-            type="text"
-            className="wpforms-field-large"
-            name="city"
-            placeholder="Your City"
-            value={state.city}
-            onChange={(e) => dispatch({ type: "SET_CITY", payload: e.target.value })}
-            required
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={state.phone}
-            onChange={(e) => dispatch({ type: "SET_PHONE", payload: e.target.value })}
-            required
-          />
-          <input
             type="password"
+            name="password"
             placeholder="Password"
-            value={state.password}
-            onChange={(e) => dispatch({ type: "SET_PASSWORD", payload: e.target.value })}
+            value={formData.password}
+            onChange={handleChange}
             required
           />
-          <button type="submit" className="submit-btn">
-            Register
-          </button>
+          <button type="submit">Register</button>
         </form>
       </div>
     </div>
@@ -163,5 +150,6 @@ const RegistrationForm = ({ isVisible, onClose, formType = "registration" }) => 
 };
 
 export default RegistrationForm;
+
 
 
